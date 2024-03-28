@@ -23,6 +23,25 @@ resnet101 = torchvision.models.resnet101(pretrained=True)
 num_ftrs = resnet101.fc.in_features
 resnet101.fc = nn.Linear(num_ftrs, 10)  # 10 classes in FashionMNIST
 
+# Load pre-trained ResNet 18 model
+resnet18 = torchvision.models.resnet18(pretrained=True)
+# Modify the classifier to adapt it to FashionMNIST classification task
+num_ftrs = resnet18.fc.in_features
+resnet18.fc = nn.Linear(num_ftrs, 10)  # 10 classes in FashionMNIST
+
+# Load pre-trained ResNet 50 model
+resnet50 = torchvision.models.resnet50(pretrained=True)
+# Modify the classifier to adapt it to FashionMNIST classification task
+num_ftrs = resnet50.fc.in_features
+resnet50.fc = nn.Linear(num_ftrs, 10)  # 10 classes in FashionMNIST
+
+# Load pre-trained ResNet 152 model
+resnet152 = torchvision.models.resnet152(pretrained=True)
+# Modify the classifier to adapt it to FashionMNIST classification task
+num_ftrs = resnet152.fc.in_features
+resnet152.fc = nn.Linear(num_ftrs, 10)  # 10 classes in FashionMNIST
+
+
 # Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.RMSprop(resnet101.parameters(), lr=0.001)
